@@ -16,9 +16,9 @@
             "purpose": "any maskable"
         },
         {
-            "src": "logo-512x512.png",
+            "src": "foto/foto3.jpeg",
             "sizes": "512x512",
-            "type": "image/png",
+            "type": "image/jpeg",
             "purpose": "any maskable"
         }
     ]
