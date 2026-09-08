@@ -1,0 +1,11 @@
+{
+    "name": "InventarisKu - Sistem Inventaris Ruangan",
+    "short_name": "InventarisKu",
+    "description": "PWA Sistem Inventaris Ruangan by Ardhecil",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#f5f7fb",
+    "theme_color": "#6d28d9",
+    "orientation": "portrait-primary"
+}

@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#6d28d9"
+    >
+
+    <meta
+        name="description"
+        content="InventarisKu - Sistem Inventaris Ruangan"
+    >
+
+    <title>InventarisKu | Ardhecil</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+    <link
+        rel="manifest"
+        href="./manifest.json"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================= -->
+    <!-- SPLASH SCREEN -->
+    <!-- ========================================= -->
+
+    <div
+        id="splashScreen"
+        class="splash-screen"
+    >
+
+        <div class="splash-content">
+
+
+            <div class="profile-logo">
+
+                <img
+                    src="foto/foto3.jpeg"
+                    alt="Logo Ardhecil"
+                    onerror="this.style.display='none'; document.getElementById('fallbackLogo').style.display='flex';"
+                >
+
+                <div
+                    id="fallbackLogo"
+                    class="fallback-logo"
+                >
+                    📦
+                </div>
+
+            </div>
+
+
+            <h1 class="splash-name">
+                Ardhecil
+            </h1>
+
+
+            <h2 class="splash-app">
+                InventarisKu
+            </h2>
+
+
+            <p class="splash-subtitle">
+                Sistem Inventaris Ruangan
+            </p>
+
+
+            <span class="splash-description">
+                Kelola inventaris dengan mudah dan cepat
+            </span>
+
+
+            <div class="loading-wrapper">
+
+                <div class="spinner"></div>
+
+                <span>
+                    Memuat aplikasi...
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================================= -->
+    <!-- TOAST -->
+    <!-- ========================================= -->
+
+    <div
+        id="toastContainer"
+        class="toast-container"
+    ></div>
+
+
+
+    <!-- ========================================= -->
+    <!-- NAVBAR -->
+    <!-- ========================================= -->
+
+    <header class="navbar">
+
+        <div class="navbar-inner">
+
+
+            <div class="brand">
+
+
+                <div class="brand-logo">
+
+                    <img
+                        src="foto/foto1.jpeg"
+                        alt="Ardhecil"
+                        onerror="this.style.display='none'; document.getElementById('navFallback').style.display='flex';"
+                    >
+
+                    <div
+                        id="navFallback"
+                        class="nav-fallback"
+                    >
+                        📦
+                    </div>
+
+                </div>
+
+
+                <div class="brand-text">
+
+                    <h1>
+                        InventarisKu
+                    </h1>
+
+                    <span>
+                        Sistem Inventaris Ruangan
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <button
+                id="darkModeBtn"
+                class="theme-button"
+                type="button"
+                title="Ganti tema"
+            >
+
+                <span id="themeIcon">
+                    🌙
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ========================================= -->
+    <!-- MAIN -->
+    <!-- ========================================= -->
+
+    <main class="container">
+
+
+        <!-- ========================================= -->
+        <!-- HERO -->
+        <!-- ========================================= -->
+
+        <section class="hero">
+
+
+            <div class="hero-content">
+
+
+                <span class="hero-label">
+                    ✨ INVENTORY MANAGEMENT
+                </span>
+
+
+                <h2>
+                    Kelola Inventaris
+                    <span>
+                        Lebih Mudah
+                    </span>
+                </h2>
+
+
+                <p>
+                    Catat, pantau, cari, edit, dan
+                    kelola seluruh barang inventaris
+                    ruangan dalam satu aplikasi.
+                </p>
+
+
+                <div class="hero-user">
+
+
+                    <div class="hero-user-photo">
+
+                        <img
+                            src="foto/foto3.jpeg"
+                            alt="Ardhecil"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Dibuat oleh
+                        </span>
+
+                        <strong>
+                            Ardhecil
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="hero-decoration">
+
+                <div class="floating-item item-one">
+                    📦
+                </div>
+
+                <div class="floating-item item-two">
+                    💻
+                </div>
+
+                <div class="floating-item item-three">
+                    🪑
+                </div>
+
+                <div class="floating-item item-four">
+                    📚
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ========================================= -->
+        <!-- DASHBOARD -->
+        <!-- ========================================= -->
+
+        <section class="dashboard">
+
+
+            <button
+                type="button"
+                class="stat-card stat-clickable blue"
+                data-stat-filter="all"
+            >
+
+                <div class="stat-icon">
+                    📦
+                </div>
+
+                <div class="stat-info">
+
+                    <span>
+                        Total Barang
+                    </span>
+
+                    <strong id="totalBarang">
+                        0
+                    </strong>
+
+                    <small>
+                        Klik untuk melihat semua
+                    </small>
+
+                </div>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                class="stat-card stat-clickable green"
+                data-stat-filter="Baik"
+            >
+
+                <div class="stat-icon">
+                    ✓
+                </div>
+
+                <div class="stat-info">
+
+                    <span>
+                        Kondisi Baik
+                    </span>
+
+                    <strong id="barangBaik">
+                        0
+                    </strong>
+
+                    <small>
+                        Klik untuk melihat
+                    </small>
+
+                </div>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                class="stat-card stat-clickable yellow"
+                data-stat-filter="Rusak Ringan"
+            >
+
+                <div class="stat-icon">
+                    !
+                </div>
+
+                <div class="stat-info">
+
+                    <span>
+                        Rusak Ringan
+                    </span>
+
+                    <strong id="rusakRingan">
+                        0
+                    </strong>
+
+                    <small>
+                        Klik untuk melihat
+                    </small>
+
+                </div>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                class="stat-card stat-clickable red"
+                data-stat-filter="Rusak Berat"
+            >
+
+                <div class="stat-icon">
+                    ×
+                </div>
+
+                <div class="stat-info">
+
+                    <span>
+                        Rusak Berat
+                    </span>
+
+                    <strong id="barangRusak">
+                        0
+                    </strong>
+
+                    <small>
+                        Klik untuk melihat
+                    </small>
+
+                </div>
+
+            </button>
+
+
+        </section>
+
+<!-- ========================================= -->
+<!-- STATISTIK KONDISI BARANG -->
+<!-- ========================================= -->
+
+<section class="statistics-card">
+
+    <div class="statistics-header">
+
+        <div>
+
+            <span class="statistics-badge">
+                STATISTIK
+            </span>
+
+            <h2>
+                Statistik Kondisi Barang
+            </h2>
+
+            <p>
+                Ringkasan kondisi seluruh inventaris.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="statistics-content">
+
+        <!-- DONUT CHART -->
+
+        <div class="donut-wrapper">
+
+            <div
+                id="donutChart"
+                class="donut-chart"
+            >
+
+                <div class="donut-center">
+
+                    <strong id="donutTotal">
+                        0
+                    </strong>
+
+                    <span>
+                        Total
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LEGEND -->
+
+        <div class="statistics-legend">
+
+
+            <div class="legend-item">
+
+                <span class="legend-color legend-green"></span>
+
+                <div class="legend-text">
+
+                    <span>
+                        Baik
+                    </span>
+
+                    <strong id="statBaik">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="legend-item">
+
+                <span class="legend-color legend-yellow"></span>
+
+                <div class="legend-text">
+
+                    <span>
+                        Rusak Ringan
+                    </span>
+
+                    <strong id="statRingan">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="legend-item">
+
+                <span class="legend-color legend-red"></span>
+
+                <div class="legend-text">
+
+                    <span>
+                        Rusak Berat
+                    </span>
+
+                    <strong id="statBerat">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- ========================================= -->
+        <!-- FORM -->
+        <!-- ========================================= -->
+
+        <section class="card">
+
+
+            <div class="card-header">
+
+
+                <div>
+
+                    <span class="section-badge">
+                        DATA BARANG
+                    </span>
+
+                    <h2 id="formTitle">
+                        Tambah Inventaris
+                    </h2>
+
+                    <p>
+                        Masukkan informasi barang inventaris.
+                    </p>
+
+                </div>
+
+
+                <div class="header-icon">
+                    ✨
+                </div>
+
+
+            </div>
+
+
+
+            <form id="inventoryForm">
+
+
+                <input
+                    type="hidden"
+                    id="editId"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="namaBarang">
+                            Nama Barang
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                📦
+                            </span>
+
+                            <input
+                                type="text"
+                                id="namaBarang"
+                                placeholder="Contoh: Komputer"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="kodeInventaris">
+                            Kode Inventaris
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                🏷️
+                            </span>
+
+                            <input
+                                type="text"
+                                id="kodeInventaris"
+                                placeholder="Contoh: INV-001"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="namaRuangan">
+                            Nama Ruangan
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                🏫
+                            </span>
+
+                            <input
+                                type="text"
+                                id="namaRuangan"
+                                placeholder="Contoh: Lab Komputer"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="jumlahBarang">
+                            Jumlah Barang
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                🔢
+                            </span>
+
+                            <input
+                                type="number"
+                                id="jumlahBarang"
+                                min="1"
+                                step="1"
+                                placeholder="Contoh: 10"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="kondisiBarang">
+                            Kondisi Barang
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                🛠️
+                            </span>
+
+                            <select
+                                id="kondisiBarang"
+                                required
+                            >
+
+                                <option value="">
+                                    Pilih kondisi
+                                </option>
+
+                                <option value="Baik">
+                                    Baik
+                                </option>
+
+                                <option value="Rusak Ringan">
+                                    Rusak Ringan
+                                </option>
+
+                                <option value="Rusak Berat">
+                                    Rusak Berat
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="form-actions">
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="saveBtn"
+                    >
+
+                        💾
+
+                        <span id="saveBtnText">
+                            Simpan Data
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary hidden"
+                        id="cancelEdit"
+                    >
+
+                        ↩ Batal Edit
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </section>
+
+
+
+        <!-- ========================================= -->
+        <!-- DAFTAR INVENTARIS -->
+        <!-- ========================================= -->
+
+        <section class="card">
+
+
+            <div class="card-header inventory-header">
+
+
+                <div>
+
+                    <span class="section-badge">
+                        DATA INVENTARIS
+                    </span>
+
+                    <h2>
+                        Daftar Inventaris
+                    </h2>
+
+                    <p>
+                        Cari dan kelola data barang.
+                    </p>
+
+                </div>
+
+
+                <div class="inventory-count">
+
+                    <strong id="displayedCount">
+                        0
+                    </strong>
+
+                    <span>
+                        data
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="filter-area">
+
+
+                <div class="search-container">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Cari nama atau kode inventaris..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="filter-container">
+
+                    <span>
+                        🏫
+                    </span>
+
+                    <select id="filterRuangan">
+
+                        <option value="">
+                            Semua Ruangan
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-container">
+
+                    <span>
+                        🔧
+                    </span>
+
+                    <select id="filterKondisi">
+
+                        <option value="">
+                            Semua Kondisi
+                        </option>
+
+                        <option value="Baik">
+                            Baik
+                        </option>
+
+                        <option value="Rusak Ringan">
+                            Rusak Ringan
+                        </option>
+
+                        <option value="Rusak Berat">
+                            Rusak Berat
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div
+                id="inventoryList"
+                class="inventory-grid"
+            ></div>
+
+
+
+            <div
+                id="emptyMessage"
+                class="empty-state"
+            >
+
+                <div class="empty-icon">
+                    📦
+                </div>
+
+                <h3>
+                    Belum Ada Data
+                </h3>
+
+                <p>
+                    Tambahkan data barang melalui
+                    form di atas.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ========================================= -->
+        <!-- STATISTIK -->
+        <!-- ========================================= -->
+
+        <section class="card">
+
+
+            <div class="card-header">
+
+
+                <div>
+
+                    <span class="section-badge">
+                        STATISTIK
+                    </span>
+
+                    <h2>
+                        Kondisi Inventaris
+                    </h2>
+
+                    <p>
+                        Statistik berdasarkan kondisi barang.
+                    </p>
+
+                </div>
+
+
+                <div class="header-icon">
+                    📊
+                </div>
+
+
+            </div>
+
+
+
+            <div class="chart-area">
+
+
+                <div class="chart-row">
+
+                    <div class="chart-label">
+
+                        <span class="dot green-dot"></span>
+
+                        <strong>
+                            Baik
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-track">
+
+                        <div
+                            id="barBaik"
+                            class="chart-bar bar-green"
+                        ></div>
+
+                    </div>
+
+
+                    <strong
+                        id="chartBaik"
+                        class="chart-number"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="chart-row">
+
+                    <div class="chart-label">
+
+                        <span class="dot yellow-dot"></span>
+
+                        <strong>
+                            Rusak Ringan
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-track">
+
+                        <div
+                            id="barRingan"
+                            class="chart-bar bar-yellow"
+                        ></div>
+
+                    </div>
+
+
+                    <strong
+                        id="chartRingan"
+                        class="chart-number"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="chart-row">
+
+                    <div class="chart-label">
+
+                        <span class="dot red-dot"></span>
+
+                        <strong>
+                            Rusak Berat
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-track">
+
+                        <div
+                            id="barBerat"
+                            class="chart-bar bar-red"
+                        ></div>
+
+                    </div>
+
+
+                    <strong
+                        id="chartBerat"
+                        class="chart-number"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ========================================= -->
+        <!-- BACKUP -->
+        <!-- ========================================= -->
+
+        <section class="card">
+
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-badge">
+                        DATA
+                    </span>
+
+                    <h2>
+                        Backup & Restore
+                    </h2>
+
+                    <p>
+                        Cadangkan data inventaris.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="backup-grid">
+
+
+                <button
+                    type="button"
+                    id="exportBtn"
+                    class="backup-button"
+                >
+
+                    <div class="backup-icon export-icon">
+                        📤
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Export Data
+                        </strong>
+
+                        <span>
+                            Simpan sebagai JSON
+                        </span>
+
+                    </div>
+
+                </button>
+
+
+
+                <label
+                    for="importFile"
+                    class="backup-button"
+                >
+
+                    <div class="backup-icon import-icon">
+                        📥
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Import Data
+                        </strong>
+
+                        <span>
+                            Masukkan file JSON
+                        </span>
+
+                    </div>
+
+                </label>
+
+
+                <input
+                    type="file"
+                    id="importFile"
+                    accept=".json,application/json"
+                    hidden
+                >
+
+
+
+                <button
+                    type="button"
+                    id="deleteAllBtn"
+                    class="backup-button"
+                >
+
+                    <div class="backup-icon delete-icon">
+                        🗑️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Hapus Semua
+                        </strong>
+
+                        <span>
+                            Hapus seluruh data
+                        </span>
+
+                    </div>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+
+            <div class="footer-brand">
+
+
+                <div class="footer-photo">
+
+                    <img
+                        src="foto/foto3.jpeg"
+                        alt="Ardhecil"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        InventarisKu
+                    </strong>
+
+                    <span>
+                        by Ardhecil
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <p>
+                Sistem Inventaris Ruangan
+            </p>
+
+
+            <small>
+                © 2026 InventarisKu • PWA
+            </small>
+
+
+        </div>
+
+    </footer>
+
+<!-- ========================================= -->
+<!-- PASSWORD LOGIN -->
+<!-- ========================================= -->
+
+<div
+    id="passwordScreen"
+    class="password-screen"
+>
+
+    <div class="password-box">
+
+
+        <div class="password-logo">
+
+            <img
+                src="/foto/foto3.jpeg"
+                alt="Ardhecil"
+                onerror="this.style.display='none';"
+            >
+ 
+        </div>
+
+
+        <span class="password-small">
+            🔐 AREA TERLINDUNGI
+        </span>
+
+
+        <h2>
+            Selamat Datang
+        </h2>
+
+
+        <p>
+            Masukkan password untuk
+            masuk ke Inventaris Ardhecil.
+        </p>
+
+
+        <div class="password-input-box">
+
+            <span>
+                🔑
+            </span>
+
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Masukkan password"
+                autocomplete="off"
+            >
+
+
+            <button
+                type="button"
+                id="togglePassword"
+                class="toggle-password"
+            >
+                👁️
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="loginButton"
+            class="login-button"
+        >
+
+            🔓 Masuk Aplikasi
+
+        </button>
+
+
+        <p
+            id="passwordError"
+            class="password-error"
+        >
+            Password salah. Silakan coba lagi.
+        </p>
+
+
+        <small class="password-footer">
+            InventarisKu • Ardhecil
+        </small>
+
+
+    </div>
+
+</div>
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
